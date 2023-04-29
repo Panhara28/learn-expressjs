@@ -1,0 +1,13 @@
+import express, { Request, Response } from "express";
+import Logging from "./libs/Logging";
+
+const port = process.env.PORT ? process.env.PORT : 8080;
+const router = express();
+
+router.use(express.urlencoded({ extended: true }));
+
+const StartApplication = () => {
+  router.listen(port, () => Logging.info(`Server is running on port ${port}`));
+};
+
+StartApplication();
