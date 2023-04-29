@@ -1,7 +1,7 @@
 import knex from "knex";
-import { connection } from "./connection";
+import { settings } from "./settings";
 
 export const knx = knex({
   client: "mysql2",
-  connection,
+  connection: settings,
 });
