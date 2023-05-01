@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
-const UserRoutes_1 = __importDefault(require("../../../routes/UserRoutes"));
+const UserRoutes_1 = __importDefault(require("../../../routes/users/UserRoutes"));
 const chai_1 = require("chai");
 describe("GET /users", () => {
     it("should return 200 OK", () => __awaiter(void 0, void 0, void 0, function* () {

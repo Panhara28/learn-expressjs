@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { knx } from "../connections/knex";
+import { knx } from "../../connections/knex";
 
 export default async function UserController(req: Request, res: Response) {
   const user = await knx("users")

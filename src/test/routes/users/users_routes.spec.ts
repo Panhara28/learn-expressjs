@@ -1,5 +1,5 @@
 import request from "supertest";
-import UserRoutes from "../../../routes/UserRoutes";
+import UserRoutes from "../../../routes/users/UserRoutes";
 import { expect } from "chai";
 
 describe("GET /users", () => {
