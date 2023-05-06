@@ -9,18 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const UserModel_1 = require("../../models/users/UserModel");
-function UsersController(req, res) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const users = yield UserModel_1.User.allUsers();
-            res.json(users);
-        }
-        catch (err) {
-            if (!res.headersSent) {
-                res.status(500).json({ message: "Internal server error" });
-            }
-        }
-    });
-}
-exports.default = UsersController;
+const UserModel_1 = require("../../../models/users/UserModel");
+const chai_1 = require("chai");
+describe("User Model", () => {
+    it("should query all users", () => __awaiter(void 0, void 0, void 0, function* () {
+        const users = yield UserModel_1.User.allUsers();
+        (0, chai_1.expect)(users).to.be.an("array");
+    }));
+});

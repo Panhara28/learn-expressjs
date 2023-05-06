@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { knx } from "../../connections/knex";
+import { User } from "../../models/users/UserModel";
 
 export default async function UsersController(req: Request, res: Response) {
   try {
-    const users = await knx.select("*").from("users");
+    const users = await User.allUsers();
     res.json(users);
   } catch (err) {
     if (!res.headersSent) {

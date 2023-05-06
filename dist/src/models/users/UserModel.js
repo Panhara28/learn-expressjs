@@ -9,18 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const UserModel_1 = require("../../models/users/UserModel");
-function UsersController(req, res) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const users = yield UserModel_1.User.allUsers();
-            res.json(users);
-        }
-        catch (err) {
-            if (!res.headersSent) {
-                res.status(500).json({ message: "Internal server error" });
-            }
-        }
-    });
-}
-exports.default = UsersController;
+exports.User = void 0;
+const knex_1 = require("../../connections/knex");
+exports.User = {
+    allUsers: () => __awaiter(void 0, void 0, void 0, function* () {
+        const users = yield knex_1.knx.select("*").from("users");
+        return users;
+    }),
+};

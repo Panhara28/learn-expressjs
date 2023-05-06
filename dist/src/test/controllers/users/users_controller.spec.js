@@ -15,27 +15,42 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const UserRoutes_1 = __importDefault(require("../../../routes/users/UserRoutes"));
 const chai_1 = require("chai");
-describe("should return a list of the users", () => {
+const generateToken_1 = require("../../functions/generateToken");
+describe("Users Controller", () => {
     it("should return an array of objects", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield (0, supertest_1.default)(UserRoutes_1.default).get("/users");
+        const user = { username: "panhara" };
+        const token = (0, generateToken_1.generateToken)(user);
+        const response = yield (0, supertest_1.default)(UserRoutes_1.default)
+            .get("/users")
+            .set("token", `${token}`);
         (0, chai_1.expect)(response.body).to.an("array");
     }));
     it("should return an array length greater than 0", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield (0, supertest_1.default)(UserRoutes_1.default).get("/users");
+        const user = { username: "panhara" };
+        const token = (0, generateToken_1.generateToken)(user);
+        const response = yield (0, supertest_1.default)(UserRoutes_1.default)
+            .get("/users")
+            .set("token", token);
         (0, chai_1.expect)(response.body.length).to.be.greaterThan(0);
     }));
     it("should return a proper properties", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield (0, supertest_1.default)(UserRoutes_1.default).get("/users");
+        const user = { username: "panhara" };
+        const token = (0, generateToken_1.generateToken)(user);
+        const response = yield (0, supertest_1.default)(UserRoutes_1.default)
+            .get("/users")
+            .set("token", token);
         (0, chai_1.expect)(response.body[0]).to.have.property("id");
         (0, chai_1.expect)(response.body[0]).to.have.property("username");
         (0, chai_1.expect)(response.body[0]).to.have.property("password");
         (0, chai_1.expect)(response.body[0]).to.have.property("fullname");
     }));
-});
-describe("should return a detail of the user", () => {
     it("should return a single user", () => __awaiter(void 0, void 0, void 0, function* () {
+        const user = { username: "panhara" };
+        const token = (0, generateToken_1.generateToken)(user);
         const userId = 1;
-        const response = yield (0, supertest_1.default)(UserRoutes_1.default).get(`/users/${userId}`);
+        const response = yield (0, supertest_1.default)(UserRoutes_1.default)
+            .get(`/users/${userId}`)
+            .set("token", token);
         (0, chai_1.expect)(response.body).to.an("object");
     }));
 });
