@@ -16,4 +16,12 @@ exports.User = {
         const users = yield knex_1.knx.select("*").from("users");
         return users;
     }),
+    userDetail: (id) => __awaiter(void 0, void 0, void 0, function* () {
+        const user = yield knex_1.knx.select("*").from("users").where({ id }).first();
+        return user;
+    }),
+    signUp: ({ fullname, username, password, }) => __awaiter(void 0, void 0, void 0, function* () {
+        const [signUp] = yield knex_1.knx.insert({ fullname, username, password });
+        return signUp;
+    }),
 };

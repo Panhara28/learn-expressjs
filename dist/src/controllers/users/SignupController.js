@@ -9,15 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const UserModel_1 = require("../../../models/users/UserModel");
-const chai_1 = require("chai");
-describe("User Model", () => {
-    it("should query all users", () => __awaiter(void 0, void 0, void 0, function* () {
-        const users = yield UserModel_1.User.allUsers();
-        (0, chai_1.expect)(users).to.be.an("array");
-    }));
-    it("should query a user", () => __awaiter(void 0, void 0, void 0, function* () {
-        let user = yield UserModel_1.User.userDetail(1);
-        (0, chai_1.expect)(user).to.be.an("object");
-    }));
-});
+function SignupController(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        res.json({ message: "You have signed up successfully!" });
+    });
+}
+exports.default = SignupController;

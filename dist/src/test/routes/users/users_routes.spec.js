@@ -37,3 +37,9 @@ describe("GET /users/:id", () => {
         (0, chai_1.expect)(response.status).to.equal(200);
     }));
 });
+describe("POST /users/signup", () => {
+    it("should return 200 OK", () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield (0, supertest_1.default)(UserRoutes_1.default).post(`/users/signup`);
+        (0, chai_1.expect)(response.status).to.equal(200);
+    }));
+});

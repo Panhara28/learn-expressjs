@@ -6,4 +6,9 @@ describe("User Model", () => {
     const users = await User.allUsers();
     expect(users).to.be.an("array");
   });
+
+  it("should query a user", async () => {
+    let user: any = await User.userDetail(1);
+    expect(user).to.be.an("object");
+  });
 });

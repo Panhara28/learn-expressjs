@@ -53,4 +53,13 @@ describe("Users Controller", () => {
             .set("token", token);
         (0, chai_1.expect)(response.body).to.an("object");
     }));
+    it("should signup user successfully with fullname, username, and password", () => __awaiter(void 0, void 0, void 0, function* () {
+        const user = {
+            fullname: "chhouk tit panhara",
+            username: "panhara",
+            password: "123",
+        };
+        const response = yield (0, supertest_1.default)(UserRoutes_1.default).post("/users/signup").send(user);
+        (0, chai_1.expect)(response.body.message).to.equal("You have signed up successfully!");
+    }));
 });

@@ -25,3 +25,10 @@ describe("GET /users/:id", () => {
     expect(response.status).to.equal(200);
   });
 });
+
+describe("POST /users/signup", () => {
+  it("should return 200 OK", async () => {
+    const response = await request(UserRoutes).post(`/users/signup`);
+    expect(response.status).to.equal(200);
+  });
+});
