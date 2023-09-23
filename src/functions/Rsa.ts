@@ -24,10 +24,16 @@ export async function verifySignature(
   message: string,
   signature: string
 ) {
-  const verify = crypto.createVerify("RSA-SHA256");
-  verify.update(message);
-  const isSignatureValid = verify.verify(publicKey, signature, "base64");
-  return isSignatureValid;
+  try {
+    console.log(publicKey);
+    const verify = crypto.createVerify("RSA-SHA256");
+    verify.update(message);
+    const isSignatureValid = verify.verify(publicKey, signature, "base64");
+    return isSignatureValid;
+  } catch (error) {
+    console.error("Error occurred while verifying signature:", error);
+    return false;
+  }
 }
 
 // Usage example
