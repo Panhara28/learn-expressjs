@@ -3,7 +3,7 @@ import {
   generateKeyPair,
   signMessage,
   verifySignature,
-} from "../../functions/RSA";
+} from "../../functions/Rsa";
 
 export default async function DigitalSignatureSignController(
   req: Request,
@@ -15,9 +15,6 @@ export default async function DigitalSignatureSignController(
 
   const message = `{ id: 1, username: "panhara" }`;
   const signature = await signMessage(privateKey, message);
-  console.log("Signature:", signature);
   const isValid = await verifySignature(publicKey, message, signature);
-  console.log("Is signature valid?", isValid);
-
-  res.json({ message: "Request" });
+  res.json({ signature, publicKey, isValid });
 }
