@@ -4,18 +4,25 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/chai-spies": "^1.0.3",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/knex": "^0.16.1",
     "@types/node": "^18.16.2",
-    "chalk": "^4.1.2",
+    "@types/qrcode": "^1.5.2",
+    "bcrypt": "^5.1.0",
+    "chai-spies": "^1.0.0",
     "dot-env": "^0.0.1",
     "express": "^4.18.2",
     "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.2.4",
     "nodemon": "^2.0.22",
-    "prettier": "^2.8.8",
+    "qrcode": "^1.5.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
@@ -23,6 +30,18 @@
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts --exec ts-node",
     "knex migration:make": "ts-node ./node_modules/knex/bin/cli.js migrate:make --knexfile=./path/to/knexfile.ts",
-    "knex migrate:latest": "ts-node ./node_modules/knex/bin/cli.js migrate:latest --knexfile=./path/to/knexfile.ts"
+    "knex migrate:latest": "ts-node ./node_modules/knex/bin/cli.js migrate:latest --knexfile=./path/to/knexfile.ts",
+    "test": "tsc && mocha --require ts-node/register src/**/*.spec.ts --exit"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/chalk": "^2.2.0",
+    "@types/mocha": "^10.0.1",
+    "@types/supertest": "^2.0.12",
+    "chai": "^4.3.7",
+    "chalk": "^4.1.2",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "supertest": "^6.3.3"
   }
 }
