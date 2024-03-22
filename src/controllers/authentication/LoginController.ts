@@ -8,7 +8,7 @@ export default async function LoginController(req: Request, res: Response) {
   try {
     const { username, password } = req.body;
     const user = await knx("users").select("*").where({ username }).first();
-
+    
     if (!user) {
       res.status(400).send("username doesn`t exited");
     }
