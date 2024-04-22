@@ -22,7 +22,13 @@ export default class Logging {
 
   public static route = (args: any) => 
       console.log(
-        chalk.blue(`[${new Date().toLocaleString()}] [ROUTE]`,
+        chalk.cyan(`[${new Date().toLocaleString()}] [ROUTE]`,
         typeof args === "string" ? chalk.cyanBright(args) : args)
+      )
+
+  public static not_found = (args: any) => 
+      console.log(
+        chalk.red(`[${new Date().toLocaleString()}] [Unknow Route]`,
+        typeof args === "string" ? chalk.red(args) : args)
       )
 }
