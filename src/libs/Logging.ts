@@ -31,4 +31,10 @@ export default class Logging {
         chalk.red(`[${new Date().toLocaleString()}] [Unknow Route]`,
         typeof args === "string" ? chalk.red(args) : args)
       )
+
+  public static mysql_log = (args: any) => 
+      console.log(
+        chalk.blue(`[${new Date().toLocaleString()}] [MySQL]`,
+        typeof args === "string" ? chalk.blue(args) : args)
+      )
 }
