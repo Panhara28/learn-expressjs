@@ -3,7 +3,6 @@ import Logging from "./libs/Logging";
 import HelloRoutes from "./routes/HelloRoutes";
 import LoggingMiddleman from "./middlewares/LoggingMiddlewares";
 import NotFoundMiddlewares from "./middlewares/NotFoundMiddleware";
-import { knx } from "./connections/knex";
 import MySQLog from "./middlewares/MySQLog";
 import UserRoutes from "./routes/UserRoutes";
 
